@@ -271,8 +271,8 @@ func metaOf(state *State, v Value) *table {
 		if o, ok := u.(HasNewIndex); ok { // __newindex
 			method := Func(func(state *State) int {
 				var (
-					key = state.frame().pop()
 					val = state.frame().pop()
+					key = state.frame().pop()
 				)
 				if err := o.SetIndex(key, val); err != nil {
 					state.errorf("%v", err)
